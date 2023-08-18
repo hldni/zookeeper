@@ -1128,7 +1128,7 @@ public class QuorumPeer extends ZooKeeperThread implements QuorumStats.Provider 
     }
 
     @Override
-    public synchronized void start() {
+    public synchronized void        start() {
         if (!getView().containsKey(myid)) {
             throw new RuntimeException("My id " + myid + " not in the peer list");
         }

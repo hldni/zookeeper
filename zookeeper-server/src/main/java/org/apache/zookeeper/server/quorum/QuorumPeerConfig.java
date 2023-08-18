@@ -177,12 +177,18 @@ public class QuorumPeerConfig {
         LOG.info("Reading configuration from: " + path);
 
         try {
+            /**
+             * 检查路径是否正确
+             */
             File configFile = (new VerifyingFileFactory.Builder(LOG)
                 .warnForRelativePath()
                 .failForNonExistingPath()
                 .build()).create(path);
 
             Properties cfg = new Properties();
+            /**
+             * 加载文件
+             */
             try (FileInputStream in = new FileInputStream(configFile)) {
                 cfg.load(in);
                 configFileStr = path;
